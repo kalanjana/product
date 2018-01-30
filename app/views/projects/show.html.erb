@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @project.image %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @project.start %>
+</p>
+ 
+<h2>Add a timeline:</h2>
+<%= form_with(model: [ @project, @project.timelines.build ]) do |form| %>
+  <p>
+    <%= form.label :note %><br>
+    <%= form.text_field :note %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_article_path(@project) %> |
+<%= link_to 'Back', articles_path %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
